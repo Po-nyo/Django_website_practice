@@ -6,9 +6,9 @@
 </head>
 <body>
     <h1>Blog</h1>
-        {% for p in posts %}
-        <h3>{{ p }}</h3>
-        <h4>{{ p.date }}</h4>
+        {% for p in object_list %}
+        <h3>{{ p.title }}</h3>
+        <h4>{{ p.date }} by {{ p.author }}</h4>
         <p>{{ p.contents }}</p>
         {% endfor %}
     </ul>

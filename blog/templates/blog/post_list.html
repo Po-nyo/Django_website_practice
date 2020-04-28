@@ -14,6 +14,9 @@
                 <img class="card-img-top" src="https://picsum.photos/750/300/?random" alt="Card image cap">
             {% endif %}
             <div class="card-body">
+                {% if p.category %}
+                    <a href="#" class="badge badge-danger float-right">{{ p.category }}</a>
+                {% endif %}
                 <h2 class="card-title">{{ p.title }}</h2>
                 <p class="card-text">{{ p.contents | truncatewords:60 }}</p>
                 <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>

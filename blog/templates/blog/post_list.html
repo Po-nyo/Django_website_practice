@@ -80,14 +80,14 @@
     <div class="row">
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-3">
+        <div class="col-md-3" >
 
             <!-- Search Widget -->
             <div class="card my-4">
-                <h5 class="card-header">Search</h5>
+                <h5 class="card-header" >게시물 검색</h5>
                 <div class="card-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" class="form-control" placeholder="검색">
                         <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button">Go!</button>
               </span>
@@ -97,7 +97,7 @@
 
             <!-- Categories Widget -->
             <div class="card my-4">
-                <h5 class="card-header">Categories</h5>
+                <h5 class="card-header" style="color : red">카테고리</h5>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -148,7 +148,7 @@
                     {% endif %}
                     <div class="card-body">
                         <h2 class="card-title">{{ p.title }}</h2>
-                        <p class="card-text">{{ p.contents }}</p>
+                        <p class="card-text">{{ p.contents | truncatewords:60 }}</p>
                         <a href="#" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">

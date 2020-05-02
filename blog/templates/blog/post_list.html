@@ -1,8 +1,13 @@
 {% extends 'blog/base.html' %}
 <!-- Blog Entries Column -->
+{% if title %}
+    {% block title %}{{ title }}{% endblock %}
+{% endif %}
 {% block contents %}
     <h1 class="my-4">My Blog
-        <small>with bootstrap</small>
+        {% if category %}<small class="text-muted"> - {{ category }}</small>
+        {% else %}<small>with bootstrap</small>
+        {% endif%}
     </h1>
 
     <!-- Blog Post -->
@@ -16,6 +21,8 @@
             <div class="card-body">
                 {% if p.category %}
                     <a href="#" class="badge badge-danger float-right">{{ p.category }}</a>
+                {% else %}
+                    <a href="#" class="badge badge-danger float-right">ect</a>
                 {% endif %}
                 <h2 class="card-title">{{ p.title }}</h2>
                 <p class="card-text">{{ p.contents | truncatewords:60 }}</p>

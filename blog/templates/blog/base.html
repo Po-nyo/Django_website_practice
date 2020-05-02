@@ -104,14 +104,11 @@
                             <ul class="list-unstyled mb-0">
                                 {% for category in category_list %}
                                 <li>
-                                    <a href="#"> {{ category.name }} ({{ category.post_set.count }})</a>
+                                    <a href="{{ category.get_absolute_url }}"> {{ category.name }} ({{ category.post_set.count }})</a>
                                 </li>
                                 {% endfor %}
                                 <li>
-                                    <a href="#">HTML</a>
-                                </li>
-                                <li>
-                                    <a href="#">ect ({{ without_category }})</a>
+                                    <a href="/blog/category/_none/">ect ({{ without_category }})</a>
                                 </li>
                             </ul>
                         </div>

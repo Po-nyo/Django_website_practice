@@ -20,6 +20,13 @@ class PostList(ListView) :
 class PostDetail(DetailView) :
     model = Post
 
+    def get_context_data(self, **kwargs):
+        context = super(PostDetail, self).get_context_data(**kwargs)
+        context['category_list'] = Category.objects.all()
+        context['without_category'] = Post.objects.filter(category=None).count()
+
+        return context
+
 
 # def post_detail(request, pk) :
 #     post = Post.objects.get(pk=pk)

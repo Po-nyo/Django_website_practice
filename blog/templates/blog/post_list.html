@@ -4,6 +4,9 @@
     {% block title %}{{ title }}{% endblock %}
 {% endif %}
 {% block contents %}
+    {% if user.is_authenticated %}
+        <button class="btn btn-primary float-right btn-sm my-4" onclick="location.href='/blog/create'">글 쓰기</button>
+    {% endif %}
     <h1 class="my-4">
         My Blog
         {% if category %}<small class="text-muted"> - {{ category }}</small>
@@ -11,6 +14,7 @@
         {% else %}<small></small>
         {% endif%}
     </h1>
+    <hr>
 
     <!-- Blog Post -->
     {% for p in object_list %}

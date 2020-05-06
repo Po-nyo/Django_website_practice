@@ -37,7 +37,7 @@ class Post(models.Model) :
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     contents = MarkdownxField()
     head_image = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):

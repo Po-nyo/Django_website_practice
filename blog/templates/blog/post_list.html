@@ -4,9 +4,11 @@
     {% block title %}{{ title }}{% endblock %}
 {% endif %}
 {% block contents %}
-    <h1 class="my-4">My Blog
+    <h1 class="my-4">
+        My Blog
         {% if category %}<small class="text-muted"> - {{ category }}</small>
-        {% else %}<small>with bootstrap</small>
+        {% elif tag %}<small class="text-muted"> - #{{ tag }}</small>
+        {% else %}<small></small>
         {% endif%}
     </h1>
 

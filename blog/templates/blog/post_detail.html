@@ -7,6 +7,12 @@
     <!-- Title -->
     <h1 class="mt-4">{{ object.title }}</h1>
 
+    {% if object.category %}
+        <a href="#" class="badge badge-danger float-right">{{ object.category }}</a>
+    {% else %}
+        <a href="#" class="badge badge-danger float-right">ect</a>
+    {% endif %}
+
     <!-- Author -->
     <p class="lead">
         by
@@ -16,13 +22,17 @@
     <hr>
 
     <!-- Date/Time -->
-    <p>Posted on {{ object.date }}</p>
+    <p>Posted on {{ object.date }}
+        {% if request.user == object.author %}
+            <button type="button" class="btn btn-outline-secondary float-right btn-sm">글 수정</button>
+        {% endif %}
+    </p>
 
     <hr>
 
     <!-- Preview Image -->
     {% if object.head_image %}
-    <img class="img-fluid rounded" src={{ object.head_image.url }} alt="">
+        <img class="img-fluid rounded" src={{ object.head_image.url }} alt="">
     {% endif %}
 
     <hr>

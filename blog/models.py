@@ -38,13 +38,16 @@ class Post(models.Model) :
     contents = MarkdownxField()
     head_image = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
     date = models.DateTimeField()
-    tags = models.ManyToManyField(Tag, null=True, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
         return "{} :: {}" .format(self.title, self.author)
 
     def get_absolute_url(self):
-        return '/blog/{}' .format(self.pk)
+        return '/blog/{}/' .format(self.pk)
 
     def get_markdown_content(self):
         return markdown(self.contents)
+
+    def get_update_url(self):
+        return self.get_absolute_url() + 'update/'

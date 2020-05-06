@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    {{ object.title }} - blog
+{% endblock %}
+
+{% block contents %}
+    <form method="post">{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp;
+        <button type="submit" class="btn btn-outline-secondary btn-sm">수정하기</button>
+    </form>
+    <br><br>
+    {{ form.media }}
+{% endblock %}

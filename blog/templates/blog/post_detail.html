@@ -24,7 +24,7 @@
     <!-- Date/Time -->
     <p>Posted on {{ object.date }}
         {% if request.user == object.author %}
-            <button type="button" class="btn btn-outline-secondary float-right btn-sm">글 수정</button>
+            <button type="button" onclick="location.href='{{ object.get_update_url }}'" class="btn btn-outline-secondary float-right btn-sm">글 수정</button>
         {% endif %}
     </p>
 

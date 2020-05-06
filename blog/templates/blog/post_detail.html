@@ -38,8 +38,8 @@
     <hr>
 
     <!-- Post Content -->
-    {{ object.contents }}
-    <br><br><br><br>
+    {{ object.get_markdown_content | safe }}
+    <br><br><br>
     {% for tag in object.tags.all %}
         <a href="{{ tag.get_absolute_url }}">#{{ tag }} &nbsp; </a>
     {% endfor %}
